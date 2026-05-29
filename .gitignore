@@ -1,0 +1,29 @@
+# 测试文件（包含敏感信息）
+test_api.py
+test_pagination.py
+debug_pagination.py
+swu_jwxt_query.py
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 环境变量
+.env
+.env.local
