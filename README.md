@@ -181,16 +181,16 @@ from swu_jwxt_query import login, query_schedule, query_grades, query_exams, que
 session = login()
 
 # 查询课表
-schedule = query_schedule(session, "222024501210122", xnm="2025", xqm="12")
+schedule = query_schedule(session, "学号", xnm="2025", xqm="12")
 
 # 查询所有成绩
-grades = query_grades(session, "222024501210122")
+grades = query_grades(session, "学号")
 
 # 查询考试安排
-exams = query_exams(session, "222024501210122", xnm="2025", xqm="12")
+exams = query_exams(session, "学号", xnm="2025", xqm="12")
 
 # 查询空教室（第13周，星期1，第1-2节，南校区）
-rooms = query_empty_rooms(session, "222024501210122", week=13, day=1, sections=[1,2], campus_id=1)
+rooms = query_empty_rooms(session, "学号", week=13, day=1, sections=[1,2], campus_id=1)
 ```
 
 ---
@@ -248,7 +248,7 @@ rooms = query_empty_rooms(session, "222024501210122", week=13, day=1, sections=[
 ### 登录流程
 1. **IDM登录**：通过 `idm.swu.edu.cn` 进行身份认证
    - 使用 DES 加密用户名密码
-   - 使用 ddddocr 识别验证码
+   - 使用 ocr 识别验证码
 2. **CAS认证**：通过 `uaaap.swu.edu.cn` 进行单点登录
 3. **教务系统登录**：获取 `jw.swu.edu.cn` 的 JSESSIONID
 
@@ -281,7 +281,7 @@ rooms = query_empty_rooms(session, "222024501210122", week=13, day=1, sections=[
 
 ## ⚠️ 注意事项
 
-1. **验证码识别**：使用 ddddocr 自动识别，准确率约 90%，失败时会重试
+1. **验证码ocr**：使用ocr自动识别，准确率约 90%，失败时会重试
 2. **会话保持**：登录后会话有效期约 30 分钟
 3. **请求频率**：建议每次查询间隔 1-2 秒，避免被封禁
 4. **HTTPS**：所有请求必须使用 HTTPS，HTTP 会返回 400 错误
@@ -306,10 +306,10 @@ rooms = query_empty_rooms(session, "222024501210122", week=13, day=1, sections=[
   - 成绩查询：40 条记录（所有学期）
   - 考试查询：6 条记录
   - 空教室查询：110 间空教室
-- **2026-05-29**：新增 FastAPI 后端服务器，支持 Railway 部署
+- **2026-05-29**：新增 FastAPI 后端服务器，支持 部署
 
 ---
 
-**作者**：Sisyphus  
+**作者**：dandelion  
 **日期**：2026-05-29  
 **版本**：2.0
