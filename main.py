@@ -1,6 +1,6 @@
 """
 SWU 教务系统 API 后端服务器
-FastAPI 实现，部署到 Railway.app
+FastAPI 实现，部署到 
 """
 import os
 import re
